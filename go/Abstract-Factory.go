@@ -1,4 +1,4 @@
-package abstract_factory
+package main
 
 type Button interface {
 	Render()
