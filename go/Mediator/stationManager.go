@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type StationManager struct {
 	isPlatformFree bool
 	trainQueue     []Train
@@ -27,6 +29,7 @@ func (s *StationManager) notifyAboutDeparture() {
 
 	if len(s.trainQueue) > 0 {
 		firstTrainInQueue := s.trainQueue[0]
+		fmt.Println(s.trainQueue[0])
 		s.trainQueue = s.trainQueue[1:]
 		firstTrainInQueue.permitArrival()
 	}
