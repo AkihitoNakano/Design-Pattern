@@ -1,11 +1,10 @@
-class Prototype {
+export class Prototype {
   public primitive: any
   public component: object
   public circularReference: ComponentWithBackReference
 
   public clone(): this {
     const clone = Object.create(this)
-
     clone.component = Object.create(this.component)
 
     clone.circularReference = {
@@ -23,7 +22,7 @@ class ComponentWithBackReference {
   }
 }
 
-function clientCode() {
+export function clientCode() {
   const p1 = new Prototype()
   p1.primitive = 245
   p1.component = new Date()
@@ -54,3 +53,5 @@ function clientCode() {
     console.log('Component with back reference is linked to the clone. Yay!')
   }
 }
+
+clientCode()
